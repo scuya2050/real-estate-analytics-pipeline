@@ -11,7 +11,7 @@ services:
       DB_NAME: default
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_HOST: rdbms-postgres-1
+      DB_HOST: rdbms-pg-1
       DB_PORT: 5432
       DB_SCHEMA: rsm
       DB_LANDING_TABLE: properties_landing

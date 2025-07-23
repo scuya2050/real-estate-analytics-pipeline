@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-export CONTAINER_NAME="${CONTAINER_NAME:-rdbms-postgres-1}"
+export CONTAINER_NAME="${CONTAINER_NAME:-rdbms-pg-1}"
 export PORT="${PORT:-5432}"
 export DB_USER="${DB_USER:-postgres}"
 export DB="${DB:-default}"

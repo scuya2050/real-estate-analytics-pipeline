@@ -31,7 +31,7 @@ def main() -> None:
     DB_NAME: str = os.getenv("DB_NAME", "default")
     DB_USER: str = os.getenv("DB_USER", "postgres")
     DB_PASSWORD: str = os.getenv("DB_PASSWORD", "postgres")
-    DB_HOST: str = os.getenv("DB_HOST", "rdbms-postgres-1")
+    DB_HOST: str = os.getenv("DB_HOST", "rdbms-pg-1")
     DB_PORT: str = os.getenv("DB_PORT", "5432")
     DB_SCHEMA: str = os.getenv("DB_SCHEMA", "rsm")
     DB_LANDING_TABLE: str = os.getenv("DB_LANDING_TABLE", "properties_landing")

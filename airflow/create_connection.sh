@@ -6,7 +6,7 @@ CONN_ID="${CONN_ID:-pg-docker}"
 CONN_TYPE="${CONN_TYPE:-postgres}"
 CONN_LOGIN="${CONN_LOGIN:-postgres}"
 CONN_PASSWORD="${CONN_PASSWORD:-postgres}"
-CONN_HOST="${CONN_HOST:-rdbms-postgres-1}"
+CONN_HOST="${CONN_HOST:-rdbms-pg-1}"
 CONN_SCHEMA="${CONN_SCHEMA:-default}"
 CONN_PORT="${CONN_PORT:-5432}"
 
