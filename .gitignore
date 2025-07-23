@@ -2,3 +2,4 @@ __pycache__/
 .venv/
 *.log
 *.csv
+run_rsm_web_scraper_docker.py

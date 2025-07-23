@@ -41,6 +41,7 @@ with DAG(
             "docker run --rm " +
             "--name rsm-web-db-loader " +
             "-v rsm-data:/web-scraper/data " +
+            "--network rsm-network " +
             "rsm-web-scraper-image python ./db_loader.py " +
             f"--dbname {conn.schema} " +
             f"--user {conn.login} " +
