@@ -1,0 +1,30 @@
+name: rsm-dashboard
+
+services:
+  streamlit:
+    container_name: rsm-dashboard-streamlit
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rsm-dashboard-image
+    environment:
+      DB_NAME: default
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: rdbms-postgres-1
+      DB_PORT: 5432
+      DB_SCHEMA: rsm
+      DB_LANDING_TABLE: properties_landing
+      DB_CLEAN_TABLE: properties_clean
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./:/dashboard
+    networks:
+      - default
+      - rsm-network
+    restart: always
+
+networks:
+  rsm-network:
+    external: true

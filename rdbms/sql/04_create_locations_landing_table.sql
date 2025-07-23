@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS ${SCHEMA}.${LANDING_DIM} (
+    inei VARCHAR,
+    reniec VARCHAR,
+    departamento VARCHAR,
+    provincia VARCHAR,
+    distrito VARCHAR,
+    region VARCHAR,
+    macroregion_inei VARCHAR,
+    macroregion_minsa VARCHAR,
+    iso_3166_2 VARCHAR,
+    fips VARCHAR,
+    capital VARCHAR,
+    superficie VARCHAR,
+    pob_densidad_2020 VARCHAR,
+    altitude VARCHAR,
+    latitude VARCHAR,
+    longitude VARCHAR,
+    indice_vulnerabilidad_alimentaria VARCHAR,
+    idh_2019 VARCHAR,
+    pct_pobreza_total VARCHAR,
+    pct_pobreza_extrema VARCHAR
+);
