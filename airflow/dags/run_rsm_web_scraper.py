@@ -30,7 +30,7 @@ with DAG(
         bash_command=(
             "docker run --rm " +
             "--name rsm-web-scraper " +
-            "-v rsm-data:/scraper/data " +
+            "-v rsm-data:/web-scraper/data " +
             "rsm-web-scraper-image python ./web_scraper.py  "
         )
     )
@@ -40,7 +40,7 @@ with DAG(
         bash_command=(
             "docker run --rm " +
             "--name rsm-web-db-loader " +
-            "-v rsm-data:/scraper/data " +
+            "-v rsm-data:/web-scraper/data " +
             "rsm-web-scraper-image python ./db_loader.py " +
             f"--dbname {conn.schema} " +
             f"--user {conn.login} " +
