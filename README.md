@@ -6,7 +6,7 @@ The Real Estate Analytics Pipeline project is a comprehensive solution for scrap
 ## Project Structure
 
 ```
-real-state-data-platform/
+real-estate-analytics-pipeline/
 ├── airflow/                # Airflow setup for orchestrating workflows
 ├── dashboard/              # Streamlit dashboard for data visualization
 ├── rdbms/                  # Database setup and initialization scripts
@@ -61,7 +61,7 @@ The following steps depict the setup for the installation with default setting. 
 2. Clone the repository, move the `airflow` and `rdbms` folders outside:
    ```bash
    git clone https://github.com/scuya2050/real-estate-analytics-pipeline
-   cd real-state-data-platform
+   cd real-estate-analytics-pipeline
    mv airflow ../airflow
    mv rdbms ../rdbms
    ```
@@ -91,7 +91,7 @@ The following steps depict the setup for the installation with default setting. 
    ```
 7. Build the Docker image for the web scraper:
    ```bash
-   cd ../real-state-data-platform
+   cd ../real-estate-analytics-pipeline
    cd web-scraper
    docker build -t reap-web-scraper-image .
    ```
