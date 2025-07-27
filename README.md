@@ -114,3 +114,12 @@ Currently, the run is scheduled to run at 02:30 GMT-5
 
 ### Dashboard
 Access the dashboard at `http://<your-ip>:8501` to visualize data. (Make sure to open the port)
+
+## Disclaimer
+
+This project is intended for educational and research purposes only.  
+The use of this code to scrape data from third-party websites must comply with their respective Terms of Service and local laws.  
+
+The author does not encourage or condone the use of this tool for violating the terms of any website, including unauthorized data collection from platforms that explicitly forbid it.
+
+By using this code, you agree to take full responsibility for any consequences that may result from its use.
