@@ -1,7 +1,7 @@
 # Real Estate Analytics Pipeline
 
 ## Overview
-The Real Estate Analytics Pipeline project is a comprehensive solution for scraping, processing, and visualizing real estate data from a web marketplace. It consists of multiple components, including a web scraper, a database, and a Streamlit dashboard for data visualization.
+The Real Estate Analytics Pipeline project is a comprehensive solution for scraping, processing, and visualizing real estate data from a web marketplace. It consists of multiple components, including a web scraper, a database, and a Streamlit dashboard for data visualization, all orchestrated through Apache Airflow and deployed using containerized Docker services.
 
 ## Project Structure
 
