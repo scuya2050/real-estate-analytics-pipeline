@@ -24,25 +24,25 @@ real-estate-analytics-pipeline/
 #### 2. Database (RDBMS)
 - **Description**: PostgreSQL database for storing raw and processed real estate data.
 - **Key Files**:
-  - `01_create_schema.sql`: Creates the database schema.
-  - `02_create_landing_table.sql`: Creates the landing table for raw data.
-  - `03_create_clean_table.sql`: Creates the clean table for processed data.
-  - init.sh
+  - `sql/01_create_schema.sql`: Creates the database schema.
+  - `sql/02_create_properties_landing_table.sql`: Creates the landing table for raw property data.
+  - `sql/03_create_properties_clean_table.sql`: Creates the clean table for processed property data.
+  - `sql/04_create_locations_landing_table.sql`: Creates the landing table for raw location data.
+  - `sql/05_create_locations_clean_table.sql`: Creates the clean table for processed location data.
+  - `init.sh`: Database initialization script that runs all SQL scripts.
 
 #### 3. Dashboard
 - **Description**: Streamlit-based dashboard for visualizing real estate data.
-- **Key Features**:
-  - Fetches data dynamically from the database.
-  - Visualizes data using interactive charts and tables.
 - **Key Files**:
-  - `app.py`: Main script that contains the dashboard.
-  - `run_streamlit.py` : Runs the app with environment variables
+  - `app.py`: Main Streamlit dashboard application.
+  - `run_streamlit.py`: Streamlit runner with environment variable setup.
 
 #### 4. Airflow
 - **Description**: Manages workflows for data scraping, processing, and loading.
 - **Key Files**:
-  - `docker-compose`: Custom docker-compose file based on the official airflow setup
-  - `dags/run_reap_web_scraper.py`: DAG for running the web scraper.
+  - `dags/run_reap_web_scraper.py`: Main DAG for running the web scraper using bash commands.
+  - `create_connection.sh`: Script to create database connections in Airflow.
+  - `create_variables.sh`: Script to create required Airflow variables.
 
 ## Installation
 
