@@ -1,19 +1,19 @@
-name: rsm-dashboard
+name: reap-dashboard
 
 services:
   streamlit:
-    container_name: rsm-dashboard-streamlit
+    container_name: reap-dashboard-streamlit
     build:
       context: .
       dockerfile: Dockerfile
-    image: rsm-dashboard-image
+    image: reap-dashboard-image
     environment:
       DB_NAME: default
       DB_USER: postgres
       DB_PASSWORD: postgres
       DB_HOST: rdbms-pg-1
       DB_PORT: 5432
-      DB_SCHEMA: rsm
+      DB_SCHEMA: reap
       DB_LANDING_TABLE: properties_landing
       DB_CLEAN_TABLE: properties_clean
     ports:
@@ -22,9 +22,9 @@ services:
       - ./:/dashboard
     networks:
       - default
-      - rsm-network
+      - reap-network
     restart: always
 
 networks:
-  rsm-network:
+  reap-network:
     external: true

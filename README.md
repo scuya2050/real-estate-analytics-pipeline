@@ -1,7 +1,7 @@
-# Real Estate Data Platform
+# Real Estate Analytics Pipeline
 
 ## Overview
-The Real Estate Data Platform project is a comprehensive solution for scraping, processing, and visualizing real estate data from a web marketplace. It consists of multiple components, including a web scraper, a database, and a Streamlit dashboard for data visualization.
+The Real Estate Analytics Pipeline project is a comprehensive solution for scraping, processing, and visualizing real estate data from a web marketplace. It consists of multiple components, including a web scraper, a database, and a Streamlit dashboard for data visualization.
 
 ## Project Structure
 
@@ -42,7 +42,7 @@ real-state-data-platform/
 - **Description**: Manages workflows for data scraping, processing, and loading.
 - **Key Files**:
   - `docker-compose`: Custom docker-compose file based on the official airflow setup
-  - `dags/run_rms_web_scraper.py`: DAG for running the web scraper.
+  - `dags/run_reap_web_scraper.py`: DAG for running the web scraper.
 
 ## Installation
 
@@ -56,11 +56,11 @@ real-state-data-platform/
 The following steps depict the setup for the installation with default setting. Most settings (user, password, host, port, etc.) can be passed as arguments in the scripts.
 1. Create shared network
    ```bash
-   docker network create rsm-network
+   docker network create reap-network
    ```
 2. Clone the repository, move the `airflow` and `rdbms` folders outside:
    ```bash
-   git clone https://github.com/scuya2050/real-state-data-platform
+   git clone https://github.com/scuya2050/real-estate-analytics-pipeline
    cd real-state-data-platform
    mv airflow ../airflow
    mv rdbms ../rdbms
@@ -93,7 +93,7 @@ The following steps depict the setup for the installation with default setting. 
    ```bash
    cd ../real-state-data-platform
    cd web-scraper
-   docker build -t rsm-web-scraper-image .
+   docker build -t reap-web-scraper-image .
    ```
 8. Build the Docker image for the web dashboard and run it:
    ```bash
@@ -105,7 +105,7 @@ The following steps depict the setup for the installation with default setting. 
 ### Pipeline orchestration
 Access the airflow GUI at `http://<your-ip>:8080` with username and password `airflow`. (Make sure to open the port)
 
-The airfllow DAG in `airflow/dags/run_rms_web_scraper.py` already:
+The airfllow DAG in `airflow/dags/run_reap_web_scraper.py` already:
 1. Runs the web scraper
 2. Loads the scraped data into the postgres database
 3. Refreshes the materialized view with clean data.

@@ -80,7 +80,7 @@ x-airflow-common:
     - /var/run/docker.sock:/var/run/docker.sock
   networks:
     - default
-    - rsm-network
+    - reap-network
   user: "${AIRFLOW_UID:-50000}:0"
   group_add:
     - "${DOCKER_GID:-999}"
@@ -154,7 +154,7 @@ services:
         condition: service_completed_successfully
     # networks:
     #   - default
-    #   - rsm_network
+    #   - reap_network
 
   airflow-dag-processor:
     <<: *airflow-common
@@ -197,7 +197,7 @@ services:
   #       condition: service_completed_successfully
   #   # networks:
   #   #   - default
-  #   #   - rsm_network
+  #   #   - reap_network
 
   airflow-triggerer:
     <<: *airflow-common
@@ -347,5 +347,5 @@ volumes:
   postgres-db-volume:
 
 networks:
-  rsm-network:
+  reap-network:
     external: true

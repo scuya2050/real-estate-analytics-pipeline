@@ -9,29 +9,29 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 # from airflow.providers.docker.operators.docker import DockerOperator
 
 with DAG(
-    dag_id="run_rsm_web_scraper",
+    dag_id="run_reap_web_scraper",
     max_active_runs=1,
     start_date=pendulum.datetime(2021, 1, 1, tz=pendulum.timezone("America/Lima")),
     schedule="30 2 * * *", 
     catchup=False,
-    tags=["rsm", "web_scraper"]
+    tags=["reap", "web_scraper"]
 ) as dag:
 
-    conn_id = Variable.get("rsm_web_scraper.rdbms.connection_id")
+    conn_id = Variable.get("reap_web_scraper.rdbms.connection_id")
     conn = BaseHook.get_connection(conn_id)
 
-    schema = Variable.get("rsm_web_scraper.rdbms.schema")
-    landing_table = Variable.get("rsm_web_scraper.rdbms.landing_table")
-    clean_table = Variable.get("rsm_web_scraper.rdbms.clean_table")
+    schema = Variable.get("reap_web_scraper.rdbms.schema")
+    landing_table = Variable.get("reap_web_scraper.rdbms.landing_table")
+    clean_table = Variable.get("reap_web_scraper.rdbms.clean_table")
 
     
     scrape_data = BashOperator(
         task_id="scrape_data",
         bash_command=(
             "docker run --rm " +
-            "--name rsm-web-scraper " +
-            "-v rsm-data:/web-scraper/data " +
-            "rsm-web-scraper-image python ./web_scraper.py  "
+            "--name reap-web-scraper " +
+            "-v reap-data:/web-scraper/data " +
+            "reap-web-scraper-image python ./web_scraper.py  "
         )
     )
 
@@ -39,10 +39,10 @@ with DAG(
         task_id="load_to_db",
         bash_command=(
             "docker run --rm " +
-            "--name rsm-web-db-loader " +
-            "-v rsm-data:/web-scraper/data " +
-            "--network rsm-network " +
-            "rsm-web-scraper-image python ./db_loader.py " +
+            "--name reap-web-db-loader " +
+            "-v reap-data:/web-scraper/data " +
+            "--network reap-network " +
+            "reap-web-scraper-image python ./db_loader.py " +
             f"--dbname {conn.schema} " +
             f"--user {conn.login} " +
             f"--password {conn.password} " +
